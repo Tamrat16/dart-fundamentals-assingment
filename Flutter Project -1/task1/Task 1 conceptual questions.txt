@@ -1,0 +1,29 @@
+
+Conceptual Questions 1
+
+
+Q1. What is the difference between a List<int> and a List<dynamic> in Dart? Why is it usually better to use a typed list like List<int>?
+
+List<int> stores only integers, while List<dynamic> can store values of any type such as integers, strings, or objects. Using List<int> is better because it provides type safety and prevents accidental insertion of incorrect data types.
+
+Q2. In your findMax() function, why is it important to initialize your 'running maximum' variable to the first element of the list rather than to 0 or to a very small number? What could go wrong with the other approaches?
+
+The running maximum must start with the first element because it is a real value from the list. If we started with 0 and all numbers were negative, the function would incorrectly return 0 even though it does not exist in the list.
+
+Q3. Your calculateAverage() function calls calculateSum() internally. What software design principle does this demonstrate, and why is reusing existing functions preferable to duplicating code?
+
+This demonstrates the principle of code reuse and modular programming. By calling calculateSum(), we avoid duplicating logic and make the program easier to maintain and debug.
+
+Q4. Describe in plain English what the for-in loop syntax does in Dart. How is it different from a traditional for loop with an index? When would you prefer one over the other?
+
+A for-in loop iterates directly over elements of a collection. It retrieves each element one by one without using an index. A traditional for loop uses an index variable to access elements. The for-in loop is simpler when you only need values, while the traditional loop is better when you need the index position.
+
+Q5. If someone calls your findMax() function with an empty list, what happens? How could you modify the function to handle that case safely?
+
+If the list is empty, accessing numbers[0] causes a runtime error. To handle this safely, we could check:
+
+if(numbers.isEmpty){
+  throw ArgumentError("List cannot be empty");
+}
+
+
