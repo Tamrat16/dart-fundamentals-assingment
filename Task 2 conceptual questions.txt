@@ -1,0 +1,29 @@
+
+Conceptual Questions 2
+
+
+Q6. What is the difference between a synchronous function and an asynchronous function in Dart? In your Calculator class, why is divide() synchronous while computeAsync() is asynchronous?
+
+A synchronous function runs immediately and returns a result directly.An asynchronous function returns a Future and may complete later.
+divide() is synchronous because the calculation is immediate, while
+computeAsync() is asynchronous because it simulates a delay using Future.delayed().
+
+Q7. Explain the purpose of the await keyword in Dart. What happens if you forget to use await when calling an async function that returns a Future? What does your program print instead of the result?
+
+The await keyword pauses execution until the Future completes and returns its value. If await is not used, the program prints something like "Instance of Future<double>" instead of the actual result.
+
+Q8. What is the purpose of the try-catch block in your displayResult() method? What would happen if you removed it and then called displayResult(10, 0, 'divide')?
+
+The try-catch block prevents the program from crashing when an error occurs. If it was removed and divide-by-zero happened, the program would throw an unhandled exception and terminate.
+
+Q9. Why is it good design to have divide() throw an ArgumentError rather than simply returning 0 or printing an error inside the divide() method itself? What principle of function design does this reflect?
+
+Throwing an ArgumentError allows the function to report invalid input clearly and lets the caller decide how to handle the error. This follows the principle of separation of concerns.
+
+10. What does the async keyword on main() allow you to do? Could this assignment have been written without making main() async? Explain your answer.
+
+The async keyword allows main() to use await for asynchronous calls. Without async, we would need to use Future.then() instead of await.
+
+
+
+
