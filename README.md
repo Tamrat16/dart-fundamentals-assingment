@@ -1,97 +1,39 @@
-# Dart Fundamentals — Programming Assignment 1
+# Recipe Browser – Flutter App (Track C)
 
-**Name:** Tamrat Arage
-**ID:** ATE/8888/15
-**Course:** Mobile application development - Software Engineering — Addis Ababa University
-**Assignment:** Programming Assignment 1: Dart Fundamentals
+**Name:** Tamrat Arage  
+**Student ID:** ATE/8888/15  
+**Track:** Recipe Browser (TheMealDB API)
 
----
+## Description
+A Flutter application that browses meal categories, lists meals in each category, and displays full recipe details including ingredients, instructions, and a YouTube link. The app communicates with TheMealDB public REST API.
 
-## Overview
+## Bonus Features Implemented
+- ✅ Search debouncing (500ms delay, +5 marks)
+- ✅ Pagination for search results (load 10 items at a time, +5 marks)
+- ✅ Local caching with 5-minute TTL using shared_preferences (+5 marks)
+- ✅ "Cached" badge appears when data is served from cache
 
-This repository contains two Dart programs built as part of Programming Assignment 1. The assignment covers core Dart concepts including typed lists, functions, object-oriented programming, exception handling, and asynchronous programming.
+## Setup Instructions
+1. Clone the repository.
+2. Ensure Flutter SDK >=3.0.0 is installed.
+3. Run `flutter pub get` to install dependencies.
+4. Run `flutter run` on a device/emulator.
 
----
+No API key required.
 
-## Repository Structure
+## API Endpoints Used
+- GET /categories.php – fetch all meal categories.
+- GET /filter.php?c={category} – fetch meals in a specific category.
+- GET /lookup.php?i={mealId} – fetch full details of a meal.
+- GET /search.php?s={query} – search meals by name (used for search).
 
-```
-dart-fundamentals-assignment/
-├── task1/
-│   └── number_analysis.dart
-├── task2/
-│   └── calculator_app.dart
-├── reflection.md
-└── README.md
-```
+## Known Limitations / Bugs
+- Some meals may have missing images; a fallback icon is shown.
+- TheMealDB free API does not support pagination; pagination is simulated client-side on search results.
+- Offline caching works but requires an initial online fetch.
 
----
-
-## Task 1 — Number Analysis App
-
-**File:** `task1/number_analysis.dart`
-
-This program performs statistical analysis on a predefined list of integers. It implements four functions from scratch — without relying on built-in Dart collection methods — to demonstrate manual control flow and the accumulator pattern.
-
-**Functions implemented:**
-- `findMax(List<int> numbers)` — returns the largest value using a loop
-- `findMin(List<int> numbers)` — returns the smallest value using a loop
-- `calculateSum(List<int> numbers)` — sums all values using an accumulator
-- `calculateAverage(List<int> numbers)` — returns the average as a `double`, internally calling `calculateSum()`
-
-**Sample output** (with list `[34, -7, 89, 12, -45, 67, 3, 100, -2, 55]`):
-```
-Number Analysis Results
-========================
-Numbers: [34, -7, 89, 12, -45, 67, 3, 100, -2, 55]
-Maximum value : 100
-Minimum value : -45
-Sum : 306
-Average : 30.6
-```
-
----
-
-## Task 2 — Async Calculator App
-
-**File:** `task2/calculator_app.dart`
-
-This program implements a `Calculator` class that encapsulates four arithmetic operations and demonstrates Dart's asynchronous programming model using `Future`, `async`, and `await`.
-
-**Key features:**
-- `add()`, `subtract()`, `multiply()`, `divide()` — synchronous arithmetic methods
-- `divide()` throws an `ArgumentError` on division by zero
-- `computeAsync()` — asynchronous method that simulates a 1.5-second processing delay using `Future.delayed()`
-- `displayResult()` — async method with `try-catch` for graceful error handling
-
-**Sample output:**
-```
---- MyCalculator ---
-add(10.0, 4.0) = 14.0
-subtract(10.0, 4.0) = 6.0
-multiply(10.0, 4.0) = 40.0
-divide(10.0, 4.0) = 2.5
-divide(15.0, 3.0) = 5.0
-Error: ArgumentError: Cannot divide by zero.
-All calculations complete.
-```
-*(Each result is printed after a 1.5-second pause.)*
-
----
-
-## How to Run
-
-All code was written and tested using [DartPad](https://dartpad.dev) — no local installation required.
-
-To run locally with the Dart SDK installed:
+## Build & Run
 ```bash
-dart task1/number_analysis.dart
-dart task2/calculator_app.dart
-```
-
----
-
-## Tools Used
-
-- [DartPad](https://dartpad.dev) — browser-based Dart environment
-- Git & GitHub — version control and submission
+flutter clean
+flutter pub get
+flutter run

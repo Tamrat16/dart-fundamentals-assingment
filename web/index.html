@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Browser</title>
+</head>
+
+<body>
+  <script>
+    // Modern Flutter web engine initialisation
+    window.addEventListener('load', function () {
+      // Load the main.dart.js script dynamically
+      var script = document.createElement('script');
+      script.src = 'main.dart.js';
+      script.type = 'application/javascript';
+      document.body.appendChild(script);
+    });
+  </script>
+  <script>
+    // Configure the Flutter engine to use the HTML renderer
+    window._flutter = window._flutter || {};
+    window._flutter.config = {
+      renderer: 'html',   // forces HTML renderer, no CanvasKit
+    };
+  </script>
+</body>
+
+</html>
