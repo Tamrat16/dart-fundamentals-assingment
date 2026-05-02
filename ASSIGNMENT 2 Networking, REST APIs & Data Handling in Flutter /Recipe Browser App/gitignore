@@ -1,0 +1,22 @@
+.dart_tool/
+.build/
+.pub/
+build/
+*.lock
+*.env
+.DS_Store
+*.iml
+*.swp
+*.log
+*.pid
+*.tmp
+# Android
+*.iml
+.gradle/
+/local.properties
+.idea/
+# iOS
+*.xcworkspace
+*.xcuserstate
+Podfile.lock
+Pods/
